@@ -1,0 +1,3 @@
+display_name: VinUni AI Project
+short_description: Intake and scaffolding for AI course projects.
+default_prompt: Use this skill to interview me and set up a new VinUni AI-in-action project.
