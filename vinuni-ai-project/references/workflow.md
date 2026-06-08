@@ -2,9 +2,11 @@
 
 ## Step 1 - Draft Stable Artifacts
 
-Before coding, create or draft:
+Before coding, create or draft the smallest useful artifact set.
 
+Minimum for lightweight AI projects:
 - `INTAKE_SUMMARY.md` or an equivalent in-chat intake summary
+- `docs/CONTEXT_SUMMARY.md` when the project may continue across sessions
 - `docs/PROJECT_BRIEF.md`
 - `docs/ARCHITECTURE.md`
 - `eval/EVALUATION_PLAN.md`
@@ -12,13 +14,20 @@ Before coding, create or draft:
 - `docs/WORKLOG.md`
 - `IMPLEMENTATION_PLAN.md` or a concise task list
 
-Use templates from `assets/templates`.
+For team/work projects, add only when useful:
+- `specs/` or `SPECS.md`
+- `docs/adr/`
+- `contracts/`
+- `DEFINITION_OF_DONE.md`
+- task/backlog files
 
-Do not scaffold until the user confirms the intake summary.
+Use templates from `assets/templates` and optional modular skills.
+Do not scaffold until the user confirms the intake summary and plan.
 
-## Step 2 - Scaffold By Level
+## Step 2 - Scaffold By Scope Shape
 
-Read `folder-structure-by-level.md` before scaffolding. It defines when to keep everything in one simple app and when to split `backend/` and `frontend/`.
+Read `folder-structure-by-level.md` for preset structures, but treat them as starting points.
+Choose the lightest structure that fits the confirmed scope profile.
 
 ## Step 3 - Implement AI Core First
 
@@ -26,7 +35,7 @@ Build the smallest working AI workflow before polishing API/UI.
 
 For single-agent:
 - Define state
-- Define nodes
+- Define nodes or steps
 - Define tools
 - Define routing
 - Add logging
@@ -42,30 +51,31 @@ For multi-agent:
 ## Step 4 - Wrap With Backend And Frontend
 
 Add FastAPI only when external interaction is useful.
-
-Add frontend only when demo experience matters.
+Add frontend only when demo or user workflow requires it.
 
 Default demo UI:
-- Streamlit for Level 1
-- Streamlit or Next.js for Level 2
-- Next.js only when UI/UX is a grading factor
+- Streamlit for quick demos
+- Streamlit or Next.js for reusable prototypes
+- Next.js only when UI/UX is a grading or product factor
 
 ## Step 5 - Evaluate
 
 Run the eval cases from `EVALUATION_PLAN.md`.
-
 Update:
 - pass/fail notes
 - failure examples
 - next fixes
+- evaluation evidence
 
-Do not claim the project is complete until at least the minimum eval cases are run.
+Do not claim the project is complete until the minimum eval or test cases are run, or until the limitation is clearly documented.
 
-## Step 6 - Handoff
+## Step 6 - Review And Handoff
 
 Before stopping, update:
 
 - `README.md`
+- `docs/CONTEXT_SUMMARY.md` if present
 - `docs/WORKLOG.md`
 - `docs/DECISION_LOG.md`
-- any known TODOs or limitations
+- relevant specs, ADRs, contracts, or DoD
+- known TODOs or limitations

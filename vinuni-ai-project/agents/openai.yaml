@@ -1,3 +1,3 @@
 display_name: VinUni AI Project
-short_description: Intake and scaffolding for AI course projects.
-default_prompt: Use this skill to interview me and set up a new VinUni AI-in-action project.
+short_description: Intake, scope shaping, and scaffolding for AI projects.
+default_prompt: Use this skill to interview me, shape scope, and set up a VinUni AI-in-action project.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Eval and DoD"
+  short_description: "Evaluation and definition of done."
+  default_prompt: "Use eval-and-dod to define tests, evaluation evidence, and done criteria."

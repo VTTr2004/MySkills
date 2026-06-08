@@ -1,13 +1,15 @@
 ---
-description: VinUni AI-in-action project workflow: intake first, level selection, agent-first architecture, evaluation, logs, and lightweight implementation.
+description: VinUni AI-in-action workflow: intake first, scope shaping, agent-first architecture, evaluation, logs, modular project discipline, and lightweight implementation.
 globs:
 alwaysApply: false
 ---
 
-When starting or restructuring an AI course project, follow the VinUni AI Project skill pack:
+When starting or restructuring an AI course/project, follow the VinUni AI Project skill pack:
 
 `K:\AI_IN_ACTION\vinuni-ai-project-skill\vinuni-ai-project`
 
-Do not code immediately. Ask intake questions, recommend Level 0-4, draft `PROJECT_BRIEF.md`, `ARCHITECTURE.md`, `EVALUATION_PLAN.md`, and `IMPLEMENTATION_PLAN.md`, then ask for approval.
+Do not code immediately. Ask intake questions, shape scope using presets as guidance, draft the needed artifacts, then ask for approval.
 
-Backend and frontend are wrappers. Prioritize agent design, eval cases, logs, worklog, and decision log.
+Backend and frontend are wrappers unless the confirmed scope says otherwise. Prioritize agent design, eval cases, logs, context summary, worklog, decision log, and handoff.
+
+For team/work projects, add specs, ADRs, contracts, DoD, and review discipline only when needed.

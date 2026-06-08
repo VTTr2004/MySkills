@@ -16,11 +16,15 @@ TODO
 
 TODO: Which option did the user choose?
 
-## Recommended Level
+## Recommended Scope Shape
 
-TODO: Level 0 / 1 / 2 / 3 / 4
+TODO: Describe the scope profile. Example: Course demo engineering + structured evaluation.
 
-## Why This Level
+## Closest Preset
+
+TODO: Spike / Course demo / Structured prototype / Demo day / Product-ready / custom / not applicable
+
+## Why This Scope Shape
 
 TODO
 
@@ -44,13 +48,25 @@ TODO
 
 TODO
 
+## Specs / ADRs / Contracts Need
+
+TODO: none / lightweight / required, with reason.
+
 ## Evaluation Direction
 
 TODO: What makes the project successful?
 
+## Definition Of Done Direction
+
+TODO: What must be true before calling the work done?
+
 ## Additional User Notes
 
 - TODO: Anything the user added after intake questions.
+
+## Confirmed Decisions
+
+- TODO
 
 ## Assumptions
 

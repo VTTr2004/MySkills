@@ -1,8 +1,9 @@
-# Level System
+# Scope Presets
 
-Use levels to prevent overbuilding. A higher level includes the expectations of lower levels unless explicitly scoped out.
+Use these presets to prevent overbuilding, but do not force every project into a rigid level.
+A project may combine dimensions, such as "Level 1 UI + Level 2 evaluation".
 
-## Level 0 - Spike
+## Preset 0 - Spike
 
 Use for a 1-3 hour idea test.
 
@@ -11,14 +12,14 @@ Must have:
 - Short README
 - 3-5 sample inputs and outputs
 
-Do not add:
+Avoid by default:
 - Full backend
 - Full frontend
 - Docker
 - CI/CD
 - Complex project structure
 
-## Level 1 - Course Demo
+## Preset 1 - Course Demo
 
 Use for daily VinUni practical projects.
 
@@ -31,14 +32,14 @@ Must have:
 - `PROJECT_BRIEF.md`
 - `EVALUATION_PLAN.md` with at least 5 test cases
 
-Do not add by default:
+Avoid by default:
 - Docker
 - CI/CD
 - Auth
 - Production database
 - Full deploy pipeline
 
-## Level 2 - Structured Agent
+## Preset 2 - Structured Prototype
 
 Use for projects worth continuing after the class day.
 
@@ -56,31 +57,26 @@ Optional:
 - FastAPI backend
 - Streamlit or Next.js frontend
 - Local vector store for RAG
+- Context summary
+- ADRs or contracts if multiple agents/people are involved
 
-## Level 3 - Demo Day
+## Preset 3 - Demo Day / Serious Presentation
 
 Use for serious presentation or grading deliverables.
 
-Must have:
-- Everything from Level 2
-- Dockerfile
-- CI/CD
-- Deployable live URL
+Often includes:
+- Everything from Preset 2
 - Architecture diagram
 - Evaluation evidence report
-- Video/demo notes
+- Demo script or video notes
 - Robust README
+- Deployable live URL, Docker, or CI/CD only if required
 
-Optional:
-- Docker Compose
-- Monitoring dashboard
-- LangSmith traces
+## Preset 4 - Product / Work-Grade
 
-## Level 4 - Product Ready
+Use only when the project is intended to become a real product or workplace deliverable.
 
-Use only when the project is intended to become a real product.
-
-Must have:
+May require:
 - Auth if user-specific data exists
 - Persistent database
 - Environment-specific config
@@ -89,5 +85,16 @@ Must have:
 - Rate limiting
 - Security review
 - Production deployment checklist
+- Specs, ADRs, contracts, DoD, review, and handoff
 
-Avoid Level 4 during daily course work unless explicitly requested.
+## Scope Profile Dimensions
+
+When no preset fits cleanly, describe:
+- Delivery mode
+- AI complexity
+- Data/tool complexity
+- UI/backend complexity
+- Evaluation rigor
+- Engineering maturity
+- Timebox fit
+- Must include / should include / defer / non-goals

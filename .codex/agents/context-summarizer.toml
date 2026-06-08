@@ -1,0 +1,18 @@
+name = "context-summarizer"
+description = "Maintain a clean rolling context summary from previous summary plus new confirmed decisions, assumptions, open questions, and superseded ideas."
+developer_instructions = """
+Maintain a concise rolling context summary.
+
+Input should include the previous summary, new user answers or decisions, and current workflow stage.
+
+Rules:
+- Preserve confirmed user decisions.
+- Separate assumptions from confirmed facts.
+- Mark superseded ideas instead of silently keeping stale context.
+- Do not invent missing decisions.
+- Do not write implementation code.
+- Return Markdown only.
+"""
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
+sandbox_mode = "read-only"

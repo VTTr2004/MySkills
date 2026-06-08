@@ -1,0 +1,4 @@
+interface:
+  display_name: "Team Workflow"
+  short_description: "Team and AI project workflow."
+  default_prompt: "Use team-workflow for specs, planning, tasks, review, and handoff."

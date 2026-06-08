@@ -1,133 +1,135 @@
 # VinUni AI Project Skill Pack
 
-Bộ này giúp bạn bắt đầu một project AI thực chiến theo cách có cấu trúc: agent-first, evaluation-first, log-first. Backend/frontend chỉ là wrapper, không phải trọng tâm.
+This repository is evolving from a lightweight VinUni AI demo helper into a personal AI project operating system.
 
-## Dùng Nhanh
+It supports two modes:
 
-Với bất kỳ coding agent nào, nói:
+1. Lightweight AI course/demo projects.
+2. Larger work-style projects that need specs, ADRs, contracts, evaluation, Definition of Done, subagents, and continuous improvement.
 
-```text
-Đọc K:\AI_IN_ACTION\vinuni-ai-project-skill\vinuni-ai-project\SKILL.md
-rồi bắt đầu intake cho project AI mới của tôi. Hỏi từng nhóm câu hỏi trước khi code.
-```
+The core philosophy is:
 
-Agent nên:
+- context first
+- plan before code
+- AI/eval/logs first
+- backend/frontend as thin wrappers unless needed
+- scope shaped by project reality, not a rigid level label
+- reusable knowledge kept in small modules, not one huge file
 
-1. Hỏi bạn về đề tài, user, AI job, dữ liệu, demo goal.
-2. Đánh giá câu trả lời của bạn: nếu quá rộng, mơ hồ, rủi ro hoặc chưa hợp level thì giải thích lý do.
-3. Đưa vài lựa chọn, khuyến nghị một option mặc định, nhưng để bạn chốt.
-4. Trước khi tổng kết, hỏi bạn có muốn bổ sung điều gì chưa được hỏi tới không.
-5. Tổng kết lại phần phỏng vấn: mục tiêu, scope, non-goals, assumptions, level, user choices, additional notes, unresolved decisions.
-6. Hỏi bạn xác nhận phần tổng kết.
-7. Chọn level phù hợp.
-8. Tạo các artifact: `PROJECT_BRIEF.md`, `ARCHITECTURE.md`, `EVALUATION_PLAN.md`, `IMPLEMENTATION_PLAN.md`.
-9. Hỏi bạn duyệt kế hoạch.
-10. Sau khi bạn duyệt, mới scaffold và implement.
+## Quick Start
 
-## Các Level
-
-| Level | Khi dùng | Có gì | Không cần mặc định |
-|-------|----------|-------|--------------------|
-| 0 - Spike | Test ý tưởng 1-3 giờ | 1 script/app nhỏ, README, sample I/O | BE, FE, Docker |
-| 1 - Course Demo | Bài thực hành hằng ngày | AI agent, `src/api` BE mỏng, `app.py` Streamlit nếu cần | Docker, CI/CD, tách FE/BE |
-| 2 - Structured Agent | Muốn phát triển tiếp | Cấu trúc agent chuẩn, docs, logs, tests cơ bản, eval 10-20 cases | Deploy phức tạp |
-| 3 - Demo Day | Cần chấm điểm/present | `backend/`, `frontend/`, Docker, CI/CD, deploy, eval evidence | Product hardening |
-| 4 - Product Ready | Muốn thành sản phẩm | `backend/`, `frontend/`, infra, auth, DB, monitoring, cost, security | Không phù hợp daily work |
-
-Default đề xuất:
-
-- Daily VinUni project: Level 1
-- Project có thể reuse/extend: Level 2
-- Final/Demo Day: Level 3
-
-## Cách Dùng Với Codex
-
-Cách đơn giản nhất: yêu cầu Codex đọc `SKILL.md` theo path ở trên.
-
-Nếu muốn auto-load trong một project, copy adapter này vào root project:
+For a lightweight AI project, ask an agent:
 
 ```text
-vinuni-ai-project\assets\adapters\codex\AGENTS.md
+Read K:\AI_IN_ACTION\vinuni-ai-project-skill\vinuni-ai-project\SKILL.md
+and start intake for my new AI project. Ask questions in small batches before coding.
 ```
 
-thành:
+For the newer modular workflow, ask Codex:
 
 ```text
-your-project\AGENTS.md
+Use the skills under K:\AI_IN_ACTION\vinuni-ai-project-skill\.agents\skills.
+Start with project-core. Load only the extra modules needed for this project.
+Do not code until scope, evaluation, architecture, and implementation plan are confirmed.
 ```
 
-## Cách Dùng Với Claude Code
-
-Copy folder skill:
+For future upgrades to this skill pack, ask:
 
 ```text
-vinuni-ai-project
+Read K:\AI_IN_ACTION\vinuni-ai-project-skill\skill-evolution first,
+then read the relevant files in knowledge-from-workshop,
+and update the skill pack modularly.
 ```
 
-vào:
+## Main Folders
 
 ```text
-your-project\.claude\skills\vinuni-ai-project
+vinuni-ai-project-skill/
+|-- README.md
+|-- WORKFLOW_DIAGRAM.md
+|-- workflow/                  # Mermaid diagrams for VS Code preview
+|-- skill-evolution/           # Read first when upgrading the skill pack
+|-- knowledge-from-workshop/   # Raw workshop notes and personal lessons
+|-- .agents/skills/            # Modular Codex skills
+|-- .codex/agents/             # Custom subagent definitions
+|-- vinuni-ai-project/         # Portable legacy/lightweight skill pack
+|-- template-manage-project/   # External project management templates
 ```
 
-Sau đó gọi:
+## Modular Skills
+
+The modular skills live in `.agents/skills/`:
+
+| Skill | Use when |
+|-------|----------|
+| `project-core` | Any project needs goal clarity, scope shaping, context summary, plan, or handoff. |
+| `ai-project-intake` | The project includes an AI agent, RAG, LLM app, chatbot, tools, prompts, or AI evaluation. |
+| `team-workflow` | Multiple people/agents, tasks, sprint planning, review, merge, or shared context are needed. |
+| `enterprise-project` | The project needs work-grade governance, traceability, risk, security, or release discipline. |
+| `adr-contracts` | Architecture decisions, contracts, domain boundaries, or conventions matter. |
+| `eval-and-dod` | You need acceptance criteria, tests, evaluation evidence, or Definition of Done. |
+| `continuous-learning` | You are updating this skill pack from workshop notes or project retrospectives. |
+
+Codex should load only the modules that match the current task.
+
+## Custom Subagents
+
+Custom subagents live in `.codex/agents/`:
+
+| Agent | Role |
+|-------|------|
+| `planning-advisor` | User-facing planning coordinator. |
+| `context-summarizer` | Maintains a clean rolling context summary. |
+| `scope-shaper` | Reviews scope flexibly across timebox, AI/data/UI/backend/eval/maturity. |
+| `spec-analyst` | Turns ideas into specs, user stories, and contract needs. |
+| `architecture-advisor` | Reviews ADRs, boundaries, architecture, and risks. |
+| `eval-designer` | Designs eval cases, acceptance criteria, and DoD. |
+| `coder` | Implements approved, well-scoped tasks. |
+| `reviewer` | Reviews correctness, missing tests, contract drift, and handoff quality. |
+
+Subagents should receive a minimal task payload plus a clean context summary, not the whole conversation when avoidable.
+
+## Scope Shaping
+
+The old Level 0-4 system still exists as a useful preset rubric:
+
+- Spike
+- Course demo
+- Structured prototype
+- Demo day
+- Product-ready
+
+But it is not a rigid classifier. A project can use a custom scope profile such as:
+
+- Level 1 UI + Level 2 evaluation
+- Simple implementation + work-grade handoff
+- Course demo engineering + strong RAG evaluation
+
+## Visual Workflow
+
+Open this in VS Code Markdown Preview:
 
 ```text
-/vinuni-ai-project Start a new VinUni AI project
+K:\AI_IN_ACTION\vinuni-ai-project-skill\WORKFLOW_DIAGRAM.md
 ```
 
-Bạn cũng có thể dùng adapter ngắn tại:
+Diagrams are split into small files in `workflow/`.
 
-```text
-vinuni-ai-project\assets\adapters\claude\SKILL.md
-```
+## Portable Skill
 
-## Cách Dùng Với Cursor
+`vinuni-ai-project/` remains a portable skill pack for agents that cannot load `.agents/skills` directly.
+It now includes references to the modular extension and subagent workflow.
 
-Copy:
+## Update Policy
 
-```text
-vinuni-ai-project\assets\adapters\cursor\vinuni-ai-project.mdc
-```
+Raw notes go into `knowledge-from-workshop/`.
+Before turning them into rules, read `skill-evolution/` and classify each lesson as:
 
-vào:
+- principle
+- heuristic
+- template
+- agent role
+- skill module
+- example
 
-```text
-your-project\.cursor\rules\vinuni-ai-project.mdc
-```
-
-Sau đó trong Cursor chat, nhắc rule này hoặc yêu cầu agent bắt đầu VinUni AI Project intake.
-
-## Cấu Trúc Bộ Skill
-
-```text
-vinuni-ai-project/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-├── references/
-│   ├── intake-questions.md
-│   ├── decision-guidance.md
-│   ├── folder-structure-by-level.md
-│   ├── level-system.md
-│   ├── workflow.md
-│   └── tool-adapters.md
-└── assets/
-    ├── templates/
-    └── adapters/
-```
-
-## Prompt Khởi Động Gợi Ý
-
-```text
-Tôi muốn bắt đầu một project AI thực chiến mới.
-Hãy dùng VinUni AI Project skill ở K:\AI_IN_ACTION\vinuni-ai-project-skill\vinuni-ai-project.
-Đừng code ngay. Hãy hỏi tôi intake từng bước, đề xuất level, tạo brief/eval/architecture/plan, rồi chờ tôi duyệt.
-Nếu câu trả lời của tôi còn quá rộng hoặc chưa hợp lý, hãy giải thích lý do, đưa option, khuyến nghị một hướng, nhưng để tôi chốt.
-Sau khi phỏng vấn xong, hãy tổng kết lại những gì bạn hiểu và chờ tôi xác nhận trước khi scaffold.
-Trước khi tổng kết, hãy hỏi tôi có muốn bổ sung điều gì chưa được hỏi tới không.
-```
-
-## Ghi Chú
-
-Bộ này đang ở bản thử nghiệm. Sau 2-3 project, nên chỉnh lại câu hỏi intake, level defaults, templates và adapter theo cách bạn thực sự dùng.
+Do not grow one giant skill file. Prefer small references, templates, or module-specific updates.

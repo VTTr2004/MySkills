@@ -1,0 +1,4 @@
+interface:
+  display_name: "Enterprise Project"
+  short_description: "Work-grade project governance."
+  default_prompt: "Use enterprise-project when this project needs work-grade governance and traceability."
