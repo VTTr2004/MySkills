@@ -1,4 +1,0 @@
-interface:
-  display_name: "Project Core"
-  short_description: "Core planning workflow for projects."
-  default_prompt: "Use project-core to clarify scope, plan, and handoff before implementation."

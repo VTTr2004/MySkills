@@ -1,4 +1,0 @@
-interface:
-  display_name: "AI Project Intake"
-  short_description: "Intake and evaluation for AI projects."
-  default_prompt: "Use ai-project-intake to interview me and shape an AI project before coding."

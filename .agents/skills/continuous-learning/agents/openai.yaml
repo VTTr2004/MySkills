@@ -1,4 +1,0 @@
-interface:
-  display_name: "Continuous Learning"
-  short_description: "Evolve skills from workshop notes."
-  default_prompt: "Use continuous-learning to convert workshop notes into skill updates."

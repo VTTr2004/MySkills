@@ -1,4 +1,0 @@
-interface:
-  display_name: "ADR Contracts"
-  short_description: "Architecture decisions and contracts."
-  default_prompt: "Use adr-contracts to define ADRs, boundaries, contracts, and conventions."
