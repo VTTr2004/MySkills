@@ -1,0 +1,20 @@
+agents:
+  - .codex/agents/phase1-planner.toml
+  - .codex/agents/phase2-tester.toml
+  - .codex/agents/phase3-tech-planner.toml
+  - .codex/agents/phase4-coder.toml
+  - .codex/agents/architecture-planner.toml
+  - .codex/agents/frontend-planner.toml
+  - .codex/agents/backend-planner.toml
+  - .codex/agents/ai-core-planner.toml
+  - .codex/agents/contract-planner.toml
+  - .codex/agents/logging-planner.toml
+  - .codex/agents/task-planner.toml
+  - .codex/agents/technical-reviewer.toml
+  - .codex/agents/frontend-coder.toml
+  - .codex/agents/backend-coder.toml
+  - .codex/agents/ai-core-coder.toml
+  - .codex/agents/integration-coder.toml
+  - .codex/agents/test-runner.toml
+  - .codex/agents/implementation-reviewer.toml
+

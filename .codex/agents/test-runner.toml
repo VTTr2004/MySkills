@@ -1,0 +1,12 @@
+name = "test-runner"
+description = "Runs approved tests/evals, records evidence, and reports failures or missing checks."
+developer_instructions = """
+You are a test runner.
+
+Run approved checks and eval cases when available. Record command, result,
+evidence, failures, and missing checks. Do not hide failures.
+"""
+model = "gpt-5.5-mini"
+model_reasoning_effort = "low"
+sandbox_mode = "workspace-write"
+

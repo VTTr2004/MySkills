@@ -1,15 +1,19 @@
-# VinUni Planner Tester Skill Pack
+# VinUni AI Project Workflow Skill Pack
 
-This repository contains a version 1 workflow for building projects with a
-planning phase and a testing/evaluation phase before implementation.
+This repository contains phased multi-agent workflows for building AI and
+software projects with explicit gates before implementation.
 
-The core rule is simple:
+The core rule is:
 
 ```text
-Do not code before planning artifacts and testing artifacts are approved.
+Do not code before planning, testing, and technical planning artifacts are approved.
 ```
 
-## Version 1 Scope
+## Available Workflows
+
+### `planner-tester-v1`
+
+Use when you want to stop before coding.
 
 Version 1 includes:
 
@@ -27,7 +31,30 @@ Version 1 does not include:
 - Production deployment workflow
 - Team sprint or merge workflow
 
-## Main Workflow
+### `project-workflow-v2`
+
+Use when you want the full gated path:
+
+```text
+Phase 1: Product Planner
+Phase 2: Tester / Evaluation Planner
+Phase 3: Technical Planner with built-in technical review
+Phase 4: Coder
+```
+
+Version 2 includes:
+
+- Phase 3 technical planning
+- built-in technical review inside Phase 3
+- frontend/backend/AI/contract/logging/task planning specialists
+- Phase 4 implementation coordination
+- specialist coder agents
+- test runner and implementation reviewer
+
+Technical review is not a separate phase by default. It is a required internal
+review step inside Phase 3.
+
+## Version 1 Workflow
 
 ```text
 User
@@ -45,18 +72,44 @@ User
  -> Stop before code
 ```
 
-## Skill Entry Point
+## Version 2 Workflow
 
-Use:
+```text
+User
+ -> Phase 1: Product Planner
+ -> Gate 1: approve planning artifacts
+ -> Phase 2: Tester / Evaluation Planner
+ -> Gate 2: approve testing artifacts
+ -> Phase 3: Technical Planner + Technical Reviewer
+ -> Gate 3: approve technical artifacts
+ -> Phase 4: Coder
+ -> Final verification and handoff
+```
+
+## Skill Entry Points
+
+Planner/Tester only:
 
 ```text
 K:\AI_IN_ACTION\vinuni-ai-project-skill\.agents\skills\planner-tester-v1\SKILL.md
 ```
 
-Start a new project with:
+Full workflow:
+
+```text
+K:\AI_IN_ACTION\vinuni-ai-project-skill\.agents\skills\project-workflow-v2\SKILL.md
+```
+
+Start a Planner/Tester project with:
 
 ```text
 Use planner-tester-v1. Run Phase 1 and Phase 2 only. Do not code.
+```
+
+Start a full project workflow with:
+
+```text
+Use project-workflow-v2. Run the gated workflow. Do not start Phase 4 until Gate 3 is approved.
 ```
 
 ## Artifacts
@@ -71,6 +124,15 @@ Phase 2 creates:
 - `EVALUATION_PLAN.md`
 - `TEST_CASES.md`
 - `DEFINITION_OF_DONE.md`
+
+Phase 3 creates:
+
+- `TECHNICAL_DESIGN.md`
+- `IMPLEMENTATION_PLAN.md`
+- optional `FOLDER_STRUCTURE.md`
+- optional `INTERFACE_CONTRACTS.md`
+- optional `LOGGING_PLAN.md`
+- optional `RUNBOOK.md`
 
 Optional workflow state:
 
@@ -89,4 +151,3 @@ supervisor sends each subagent a role-specific context payload with:
 - forbidden decisions
 
 The supervisor owns final user-facing decisions.
-

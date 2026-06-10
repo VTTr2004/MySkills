@@ -2,7 +2,7 @@
 
 This repository is designed to be used as local Codex skills and subagents.
 
-## Smoke Test Prompt
+## V1 Smoke Test Prompt
 
 Use this prompt in a fresh Codex session:
 
@@ -41,3 +41,40 @@ The workflow fails if the assistant:
 - treats vague success criteria like "good answer" as testable
 - skips user approval between Planner and Tester
 - lets a subagent make final product decisions without supervisor approval
+
+## V2 Smoke Test Prompt
+
+Use this prompt in a fresh Codex session:
+
+```text
+Use the project-workflow-v2 workflow from K:\AI_IN_ACTION\vinuni-ai-project-skill.
+I want to build a small AI assistant for student course advising.
+Start Phase 1 only. Do not code.
+```
+
+## V2 Pass Criteria
+
+The assistant should:
+
+- start with Phase 1 intake questions
+- not create technical artifacts from the first short idea alone
+- not start Phase 3 before Gate 2 approval
+- not start Phase 4 before Gate 3 approval
+- explain that technical review happens inside Phase 3, not as a separate phase
+  by default
+
+## V2 Technical Planning Prompt
+
+After Phase 1 and Phase 2 artifacts are approved, test:
+
+```text
+Continue with Phase 3 Technical Planning only. Do not code.
+```
+
+Pass criteria:
+
+- creates or proposes `TECHNICAL_DESIGN.md`
+- creates or proposes `IMPLEMENTATION_PLAN.md`
+- calls out which planners are needed and which are skipped
+- includes technical review before Gate 3
+- asks for explicit Gate 3 approval before coding
