@@ -17,7 +17,9 @@ Run Phase 1 and Phase 2 only. Do not code.
 The assistant should:
 
 - activate Planner Agent first
-- ask 1-3 intake questions at a time
+- on the first response, ask 1-3 intake questions and stop
+- not create `PROJECT_PLAN.md`, `REQUIREMENT_SUMMARY.md`, `project_summary`, or
+  testing artifacts from the first short idea alone
 - review scope before accepting the plan
 - produce or propose `PROJECT_PLAN.md`
 - produce or propose `REQUIREMENT_SUMMARY.md`
@@ -33,9 +35,9 @@ The assistant should:
 
 The workflow fails if the assistant:
 
+- creates any project summary or artifact in the first response to the smoke test
 - starts coding in version 1
 - sends the full conversation to every subagent by default
 - treats vague success criteria like "good answer" as testable
 - skips user approval between Planner and Tester
 - lets a subagent make final product decisions without supervisor approval
-

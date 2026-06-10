@@ -24,6 +24,10 @@ Classify the request:
 If the user asks to code immediately, explain that version 1 requires planning
 and testing artifacts first.
 
+If the user asks to "run Phase 1 and Phase 2" but provides only a short project
+idea, start Phase 1 by asking intake questions. Do not infer missing information
+or complete artifacts in one turn.
+
 ## Phase 1: Planner Agent
 
 Planner creates:
@@ -47,6 +51,8 @@ Gate 1 passes only when the user accepts:
 - assumptions and constraints
 - `PROJECT_PLAN.md`
 - `REQUIREMENT_SUMMARY.md`
+
+Gate 1 cannot pass silently. It requires explicit user approval.
 
 ## Phase 2: Tester Agent
 
@@ -77,4 +83,3 @@ Gate 2 passes only when the user accepts:
 
 After Gate 2, report that the project is ready for a future Coder phase.
 Do not implement code in version 1.
-
