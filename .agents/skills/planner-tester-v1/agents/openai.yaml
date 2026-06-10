@@ -1,0 +1,11 @@
+agents:
+  - .codex/agents/phase1-planner.toml
+  - .codex/agents/scope-shaper.toml
+  - .codex/agents/spec-analyst.toml
+  - .codex/agents/requirement-summary-writer.toml
+  - .codex/agents/phase2-tester.toml
+  - .codex/agents/eval-designer.toml
+  - .codex/agents/test-case-designer.toml
+  - .codex/agents/dod-writer.toml
+  - .codex/agents/test-reviewer.toml
+
