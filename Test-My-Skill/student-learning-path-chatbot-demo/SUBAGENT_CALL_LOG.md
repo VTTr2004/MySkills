@@ -1,0 +1,21 @@
+# Subagent Call Log
+
+| Time | Phase | Subagent | Purpose | Input Summary | Output Summary | Supervisor Decision |
+|------|-------|----------|---------|---------------|----------------|---------------------|
+| 2026-06-10 | Phase 0 | Intent Check | Classify the request and enforce planner-tester-v1 rules | User requested `planner-tester-v1` for a small AI assistant helping students improve courses | Classified as a new AI/software project; workflow must ask intake questions first and must not code | Start Phase 1 Planner; ask 1-3 intake questions only |
+| 2026-06-10 | Phase 1 | Scope Shaper | Narrow vague project idea into a feasible demo scope | Target user: students; goal: personalized learning path; product form: chatbot; data source: available course content; timebox: 1-day demo | Recommended compact scope: student-facing chatbot, multi-subject concept, sample course content, no production features | Accepted small demo scope and deferred dashboards, accounts, grading, deployment, and integrations |
+| 2026-06-10 | Phase 1 | Spec Analyst | Convert clarified answers into requirements and assumptions | Confirmed chatbot for students, multi-subject support, personalized study paths, course-content grounding, demo timebox | Produced structured requirements: intake flow, clarifying questions, grounded recommendations, realistic time-based plan, guardrails | Used requirements to draft `PROJECT_PLAN.md` |
+| 2026-06-10 | Phase 1 | Requirement Summary Writer | Create concise handoff summary for Tester | Approved planning direction, target user, scope, constraints, non-goals, assumptions | Produced tester-facing summary of product goal, user flow, inputs, outputs, behavior, constraints, and non-goals | Created `REQUIREMENT_SUMMARY.md` and requested Gate 1 approval |
+| 2026-06-10 | Gate 1 | Supervisor | Confirm planning artifacts before Tester phase | User reviewed `PROJECT_PLAN.md` and `REQUIREMENT_SUMMARY.md` | User explicitly approved Phase 1 artifacts | Gate 1 passed; start Phase 2 Tester |
+| 2026-06-10 | Phase 2 | Expected Output Intake | Clarify observable success and failure behavior | User said incomplete prompt like "Em yeu dai so..." should trigger questions to assess real level; failure is producing a plan before knowing level; forbidden behavior includes guarantees, fabricated course content, and out-of-scope advice | Converted vague quality expectations into observable acceptance criteria | Proceeded to evaluation and test artifact drafting |
+| 2026-06-10 | Phase 2 | Eval Designer | Define success criteria, metrics, evaluation cases, and failure modes | Requirement summary plus user clarification about incomplete student level and guardrails | Created criteria for clarification behavior, course-content grounding, actionability, time realism, subject separation, and guardrail compliance | Created `EVALUATION_PLAN.md` |
+| 2026-06-10 | Phase 2 | Test Case Designer | Create concrete test cases for demo validation | Acceptance criteria and known failure modes | Created high/medium priority cases covering happy path, missing level, missing subject, missing content, grade guarantee, out-of-scope advice, subject separation, timeline change, and fabricated exercises | Created `TEST_CASES.md` |
+| 2026-06-10 | Phase 2 | DoD Writer | Define proportional completion criteria for a 1-day demo | Required artifacts, acceptance criteria, and test pass thresholds | Created Definition of Done covering approved artifacts, sample content, clarification behavior, grounded output, guardrails, evidence, and later implementation block | Created `DEFINITION_OF_DONE.md` |
+| 2026-06-10 | Phase 2 | Test Reviewer | Review clarity, coverage, proportionality, and observability | Evaluation plan, test cases, and Definition of Done | Confirmed checks are observable and proportional for a 1-day demo; no product-grade testing burden added | Requested Gate 2 approval and stopped before implementation |
+
+## Notes
+
+- This log records the planner-tester-v1 roles used during the run.
+- Subagents were represented as role-specific workflow steps; no separate external subagent tool invocation was used.
+- The supervisor retained final user-facing decisions and did not send the full conversation to each role by default.
+- Implementation remains blocked until the user explicitly starts a later Coder phase.

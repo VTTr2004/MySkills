@@ -67,6 +67,26 @@ Optional:
 - `WORKFLOW_STATE.md`
 - `SUBAGENT_CALL_LOG.md`
 
+## Logging Tool
+
+Use `scripts/subagent_log.py` to create and maintain `SUBAGENT_CALL_LOG.md`
+without spending prompt tokens on manual table writing.
+
+Examples:
+
+```text
+<python> scripts/subagent_log.py init --project <project-folder>
+<python> scripts/subagent_log.py append --project <project-folder> --phase "Phase 1" --subagent "Spec Analyst" --purpose "Structure requirements" --input "confirmed goal and constraints" --output "requirements and assumptions" --decision "used for PROJECT_PLAN.md"
+<python> scripts/subagent_log.py validate --project <project-folder> --require-gate1
+<python> scripts/subagent_log.py summarize --project <project-folder>
+```
+
+On Windows, `<python>` can be a project venv, `py`, or an explicit Python path
+such as the Codex bundled runtime when available.
+
+Log a row after each meaningful workflow role or gate when the user wants an
+auditable run. Keep entries short and role-specific.
+
 ## Guardrails
 
 - The phase supervisor owns conversation with the user.
